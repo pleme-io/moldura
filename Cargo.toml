@@ -1,0 +1,81 @@
+[package]
+name = "moldura"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89.0"
+license = "MIT"
+homepage = "https://github.com/pleme-io/moldura"
+repository = "https://github.com/pleme-io/moldura"
+documentation = "https://docs.rs/moldura"
+readme = "README.md"
+description = "Moldura (Portuguese: frame) — canonical pleme-io TUI app framework. Bundles egaku + egaku-term + tatara-ui + shikumi + ishou-tokens into one opinionated import so kura, hikyaku, arnes, tanken, alicerce and every fleet TUI app share one lifecycle, one theme source, one config story."
+authors = ["pleme-io"]
+categories = ["command-line-interface", "gui"]
+keywords = ["tui", "terminal", "egaku", "framework", "pleme-io"]
+
+[lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+module_name_repetitions = "allow"
+
+[features]
+default = ["sync"]
+# Synchronous runtime (App::run on the calling thread).
+sync = []
+# Tokio-backed async runtime — pulls in crossterm event-stream via
+# egaku-term's tokio feature. Required for apps that want
+# `tokio::select!` over crossterm events + custom futures.
+tokio = ["egaku-term/tokio", "dep:tokio", "dep:futures-util"]
+# Optional ratatui interop module. Adds `moldura::ratatui` =
+# re-exported ratatui crate + a thin adapter for apps that want
+# ratatui widgets (charts, sparklines, gauges) on top of the
+# egaku-term frame.
+ratatui = ["dep:ratatui", "dep:ratatui-image"]
+
+[dependencies]
+# ── Indigenous pleme-io TUI stack — version-pinned here so every
+#    consumer that imports `moldura` lands on the same versions. The
+#    fragmentation problem (crossterm 0.28 in egaku-term / kura,
+#    crossterm 0.29 in skim-tab) collapses when consumers import
+#    moldura instead of raw egaku-term.
+# pleme-io stack — git refs because not all crates are on crates.io yet.
+# Once egaku / egaku-term cut a v0.3 release on crates.io we can swap
+# these back to versioned deps and consumers get pin-by-default.
+egaku = { git = "https://github.com/pleme-io/egaku" }
+egaku-term = { git = "https://github.com/pleme-io/egaku-term" }
+tatara-ui = { git = "https://github.com/pleme-io/tatara" }
+shikumi = { git = "https://github.com/pleme-io/shikumi" }
+ishou-tokens = { git = "https://github.com/pleme-io/ishou" }
+
+# ── Canonical fleet runtime crates — same versions mado / tear pin.
+crossterm = { version = "0.29", features = ["event-stream"] }
+parking_lot = "0.12"
+arc-swap = "1"
+mimalloc = { version = "0.1", default-features = false }
+serde = { version = "1", features = ["derive"] }
+serde_yaml_ng = "0.10"
+anyhow = "1"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+notify = "8"
+once_cell = "1"
+
+# ── Optional deps gated behind features.
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "macros", "sync", "time", "signal"], optional = true }
+futures-util = { version = "0.3", optional = true }
+ratatui = { version = "0.30", optional = true, default-features = false, features = ["crossterm"] }
+ratatui-image = { version = "5", optional = true }
+
+[profile]
+
+[profile.release]
+codegen-units = 1
+opt-level = 3
+lto = "fat"
+panic = "abort"
+strip = true
+debug = false
+incremental = false
+overflow-checks = false

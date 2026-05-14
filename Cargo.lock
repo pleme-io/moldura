@@ -380,7 +380,6 @@ dependencies = [
  "crossterm_winapi",
  "derive_more",
  "document-features",
- "futures-core",
  "mio",
  "parking_lot",
  "rustix 1.1.4",
@@ -1120,7 +1119,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "arc-swap",
- "crossterm 0.29.0",
+ "crossterm 0.28.1",
  "egaku",
  "egaku-term",
  "futures-util",

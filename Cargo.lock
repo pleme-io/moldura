@@ -2037,7 +2037,7 @@ dependencies = [
 [[package]]
 name = "tatara-lisp"
 version = "0.2.0"
-source = "git+https://github.com/pleme-io/tatara#18c84c75e3b0d44f40e8790f3b51b6c11456d011"
+source = "git+https://github.com/pleme-io/tatara#33c64c9f4a45da5debc79282b5e78cf87cab18a2"
 dependencies = [
  "blake3",
  "serde",
@@ -2049,7 +2049,7 @@ dependencies = [
 [[package]]
 name = "tatara-lisp-derive"
 version = "0.2.0"
-source = "git+https://github.com/pleme-io/tatara#18c84c75e3b0d44f40e8790f3b51b6c11456d011"
+source = "git+https://github.com/pleme-io/tatara#33c64c9f4a45da5debc79282b5e78cf87cab18a2"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -2059,7 +2059,7 @@ dependencies = [
 [[package]]
 name = "tatara-ui"
 version = "0.2.0"
-source = "git+https://github.com/pleme-io/tatara#18c84c75e3b0d44f40e8790f3b51b6c11456d011"
+source = "git+https://github.com/pleme-io/tatara#33c64c9f4a45da5debc79282b5e78cf87cab18a2"
 dependencies = [
  "blake3",
  "hex",

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "cargo_lock_sha256": "f4ed5139b221a596eecc0c417e5e784f61cff7abc6710bc85265880308cb3f5c",
+  "cargo_lock_sha256": "1bb5b2353582c3bff7e98d08a0a6d3144cc2939932ab83ae47461b142788cba3",
   "target_resolves": {
     "base": {
       "aho-corasick-1.1.4": {
@@ -977,7 +977,7 @@
           "os-poll"
         ]
       },
-      "moldura-0.1.3": {
+      "moldura-0.1.4": {
         "runtime_dependencies": [
           {
             "name": "anyhow",
@@ -1107,7 +1107,7 @@
           },
           {
             "name": "shikumi",
-            "package_key": "shikumi-0.1.0",
+            "package_key": "shikumi-0.1.1",
             "kind": "normal",
             "features": [],
             "uses_default_features": true,
@@ -1827,7 +1827,7 @@
         "build_dependencies": [],
         "features": []
       },
-      "shikumi-0.1.0": {
+      "shikumi-0.1.1": {
         "runtime_dependencies": [
           {
             "name": "arc_swap",
@@ -4943,8 +4943,8 @@
     "constant_time_eq-0.4.2": {
       "edition": "2024"
     },
-    "core-foundation-sys-0.8.7": {
-      "edition": "2018"
+    "cpufeatures-0.3.0": {
+      "edition": "2024"
     },
     "crossterm-0.28.1": {
       "edition": "2021"
@@ -4996,6 +4996,12 @@
     "inlinable_string-0.1.15": {
       "edition": "2018"
     },
+    "inotify-0.11.2": {
+      "edition": "2018"
+    },
+    "inotify-sys-0.1.5": {
+      "edition": "2015"
+    },
     "inventory-0.3.24": {
       "edition": "2021"
     },
@@ -5006,12 +5012,6 @@
       "edition": "2024"
     },
     "itoa-1.0.18": {
-      "edition": "2021"
-    },
-    "kqueue-1.2.0": {
-      "edition": "2021"
-    },
-    "kqueue-sys-1.1.2": {
       "edition": "2021"
     },
     "lazy_static-1.5.0": {
@@ -5025,6 +5025,9 @@
       "edition": "2018",
       "build_script": "build.rs",
       "links": "mimalloc"
+    },
+    "linux-raw-sys-0.4.15": {
+      "edition": "2021"
     },
     "lock_api-0.4.14": {
       "edition": "2021"
@@ -5044,7 +5047,7 @@
     "mio-1.2.1": {
       "edition": "2021"
     },
-    "moldura-0.1.3": {
+    "moldura-0.1.4": {
       "edition": "2024",
       "lib_target": {
         "name": "moldura",
@@ -5152,7 +5155,7 @@
     "sharded-slab-0.1.7": {
       "edition": "2018"
     },
-    "shikumi-0.1.0": {
+    "shikumi-0.1.1": {
       "edition": "2024"
     },
     "shlex-2.0.1": {
@@ -5265,30 +5268,27 @@
       "edition": "2021",
       "build_script": "build.rs"
     },
-    "cpufeatures-0.3.0": {
-      "edition": "2024"
-    },
-    "inotify-0.11.2": {
+    "core-foundation-sys-0.8.7": {
       "edition": "2018"
     },
-    "inotify-sys-0.1.5": {
-      "edition": "2015"
+    "kqueue-1.2.0": {
+      "edition": "2021"
     },
-    "linux-raw-sys-0.4.15": {
+    "kqueue-sys-1.1.2": {
       "edition": "2021"
     }
   },
   "git_nar_sha256": {
     "egaku-0.1.0": "sha256-HXV0ltAbHRAlyKgkLj3OlzM4hfhwlqSH0OmZzWowKow=",
     "egaku-term-0.2.1": "sha256-kCwMpsm3TpdSxsFOOiehY70O5IshOP+Z7CvQDLlcjXQ=",
-    "gen-macros-0.1.8": "sha256-/qPu9zmukIQuTj76JofI0drfJ7h69z9sneMSUVZqIak=",
-    "gen-platform-0.1.8": "sha256-/qPu9zmukIQuTj76JofI0drfJ7h69z9sneMSUVZqIak=",
-    "gen-types-0.1.8": "sha256-/qPu9zmukIQuTj76JofI0drfJ7h69z9sneMSUVZqIak=",
+    "gen-macros-0.1.8": "sha256-PTWL28fRRuatSLkwr47mHn/ZxbzJcaXSVXn4FdmdGS4=",
+    "gen-platform-0.1.8": "sha256-PTWL28fRRuatSLkwr47mHn/ZxbzJcaXSVXn4FdmdGS4=",
+    "gen-types-0.1.8": "sha256-PTWL28fRRuatSLkwr47mHn/ZxbzJcaXSVXn4FdmdGS4=",
     "ishou-tokens-0.1.1": "sha256-8KZr7Iawkt/U5OhVZQCo+Gxo/5uUOghTQWQsnSQ1Gtc=",
-    "shikumi-0.1.0": "sha256-ilg+vxQV9+lulw8hg3RwfCTWyG16zJ8jAH0wmtGOzgs=",
-    "tatara-lisp-0.2.3": "sha256-W5c5u2Iq6ggok/HAH56ChWPcIECVwetKl278sGfJg1Y=",
-    "tatara-lisp-derive-0.2.3": "sha256-W5c5u2Iq6ggok/HAH56ChWPcIECVwetKl278sGfJg1Y=",
-    "tatara-ui-0.2.3": "sha256-W5c5u2Iq6ggok/HAH56ChWPcIECVwetKl278sGfJg1Y="
+    "shikumi-0.1.1": "sha256-Vw1SIFXcINha2vPklXuEiSMbmjPXYKSWedRttkb1bCE=",
+    "tatara-lisp-0.2.3": "sha256-iLTRNbOGcyhMtotiAVShtfVMcEygoycpppqbD879i6Y=",
+    "tatara-lisp-derive-0.2.3": "sha256-iLTRNbOGcyhMtotiAVShtfVMcEygoycpppqbD879i6Y=",
+    "tatara-ui-0.2.3": "sha256-iLTRNbOGcyhMtotiAVShtfVMcEygoycpppqbD879i6Y="
   },
   "flake_metadata": {}
 }

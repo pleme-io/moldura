@@ -183,6 +183,22 @@ rec {
         };
         resolvedDefaultFeatures = [ "alloc" ];
       };
+      "android_system_properties" = rec {
+        crateName = "android_system_properties";
+        version = "0.1.5";
+        edition = "2018";
+        sha256 = "04b3wrz12837j7mdczqd95b732gw5q7q66cv4yn4646lvccp57l1";
+        authors = [
+          "Nicolas Silva <nical@fastmail.com>"
+        ];
+        dependencies = [
+          {
+            name = "libc";
+            packageId = "libc";
+          }
+        ];
+
+      };
       "anyhow" = rec {
         crateName = "anyhow";
         version = "1.0.102";
@@ -774,6 +790,73 @@ rec {
           "rustc-dep-of-std" = [ "core" ];
         };
       };
+      "chrono" = rec {
+        crateName = "chrono";
+        version = "0.4.44";
+        edition = "2021";
+        sha256 = "1c64mk9a235271j5g3v4zrzqqmd43vp9vki7vqfllpqf5rd0fwy6";
+        dependencies = [
+          {
+            name = "iana-time-zone";
+            packageId = "iana-time-zone";
+            optional = true;
+            target = { target, features }: (target."unix" or false);
+            features = [ "fallback" ];
+          }
+          {
+            name = "js-sys";
+            packageId = "js-sys";
+            optional = true;
+            target = { target, features }: (("wasm32" == target."arch" or null) && (!(("emscripten" == target."os" or null) || ("wasi" == target."os" or null))));
+          }
+          {
+            name = "num-traits";
+            packageId = "num-traits";
+            usesDefaultFeatures = false;
+          }
+          {
+            name = "serde";
+            packageId = "serde";
+            optional = true;
+            usesDefaultFeatures = false;
+          }
+          {
+            name = "wasm-bindgen";
+            packageId = "wasm-bindgen";
+            optional = true;
+            target = { target, features }: (("wasm32" == target."arch" or null) && (!(("emscripten" == target."os" or null) || ("wasi" == target."os" or null))));
+          }
+          {
+            name = "windows-link";
+            packageId = "windows-link";
+            optional = true;
+            target = { target, features }: (target."windows" or false);
+          }
+        ];
+        features = {
+          "arbitrary" = [ "dep:arbitrary" ];
+          "clock" = [ "winapi" "iana-time-zone" "now" ];
+          "default" = [ "clock" "std" "oldtime" "wasmbind" ];
+          "defmt" = [ "dep:defmt" "pure-rust-locales?/defmt" ];
+          "iana-time-zone" = [ "dep:iana-time-zone" ];
+          "js-sys" = [ "dep:js-sys" ];
+          "now" = [ "std" ];
+          "pure-rust-locales" = [ "dep:pure-rust-locales" ];
+          "rkyv" = [ "dep:rkyv" "rkyv/size_32" ];
+          "rkyv-16" = [ "dep:rkyv" "rkyv?/size_16" ];
+          "rkyv-32" = [ "dep:rkyv" "rkyv?/size_32" ];
+          "rkyv-64" = [ "dep:rkyv" "rkyv?/size_64" ];
+          "rkyv-validation" = [ "rkyv?/validation" ];
+          "serde" = [ "dep:serde" ];
+          "std" = [ "alloc" ];
+          "unstable-locales" = [ "pure-rust-locales" ];
+          "wasm-bindgen" = [ "dep:wasm-bindgen" ];
+          "wasmbind" = [ "wasm-bindgen" "js-sys" ];
+          "winapi" = [ "windows-link" ];
+          "windows-link" = [ "dep:windows-link" ];
+        };
+        resolvedDefaultFeatures = [ "alloc" "clock" "default" "iana-time-zone" "js-sys" "now" "oldtime" "serde" "std" "wasm-bindgen" "wasmbind" "winapi" "windows-link" ];
+      };
       "color_quant" = rec {
         crateName = "color_quant";
         version = "1.1.0";
@@ -935,6 +1018,20 @@ rec {
           }
         ];
 
+      };
+      "core-foundation-sys" = rec {
+        crateName = "core-foundation-sys";
+        version = "0.8.7";
+        edition = "2018";
+        sha256 = "12w8j73lazxmr1z0h98hf3z623kl8ms7g07jch7n4p8f9nwlhdkp";
+        libName = "core_foundation_sys";
+        authors = [
+          "The Servo Project Developers"
+        ];
+        features = {
+          "default" = [ "link" ];
+        };
+        resolvedDefaultFeatures = [ "default" "link" ];
       };
       "cpufeatures" = rec {
         crateName = "cpufeatures";
@@ -1490,8 +1587,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/egaku";
-          rev = "da6eb9705af19123af4640d4b69d4114fe554d29";
-          sha256 = "1r7ah415d9bjxs93h17mj8rg5hakvrh3wf23xrpw8w1qaksp53kw";
+          rev = "3b2af556217f4bcadc58b2f6b494f80224a10a9e";
+          sha256 = "0r3173zjc378m1dvj9m700az6a0yz3z26b0p5ihs8cr6b4r5ixbq";
         };
         dependencies = [
           {
@@ -1525,8 +1622,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/egaku-term";
-          rev = "68ac5df836d24d9b14e6b194e8d7ee9cbd30d219";
-          sha256 = "1sbnbiv73prx64wbzrdwbhs6mkl1c19nma51v8awxz59wn0gc78b";
+          rev = "1125fc4773672bd7fcf5def334dc7e2bc1d3f819";
+          sha256 = "1wpj55qv4c431gn9lqi05p0rxq5vgb7qciyhbrqkrwbl3q8bsfgx";
         };
         libName = "egaku_term";
         dependencies = [
@@ -1898,23 +1995,6 @@ rec {
           "default" = [ "std" ];
         };
       };
-      "fsevent-sys" = rec {
-        crateName = "fsevent-sys";
-        version = "4.1.0";
-        edition = "2018";
-        sha256 = "1liz67v8b0gcs8r31vxkvm2jzgl9p14i78yfqx81c8sdv817mvkn";
-        libName = "fsevent_sys";
-        authors = [
-          "Pierre Baillet <pierre@baillet.name>"
-        ];
-        dependencies = [
-          {
-            name = "libc";
-            packageId = "libc";
-          }
-        ];
-
-      };
       "futures-core" = rec {
         crateName = "futures-core";
         version = "0.3.32";
@@ -2023,6 +2103,130 @@ rec {
           "write-all-vectored" = [ "io" ];
         };
         resolvedDefaultFeatures = [ "alloc" "async-await" "async-await-macro" "default" "futures-macro" "slab" "std" ];
+      };
+      "gen-macros" = rec {
+        crateName = "gen-macros";
+        version = "0.1.5";
+        edition = "2024";
+        workspace_member = null;
+        src = pkgs.fetchgit {
+          url = "https://github.com/pleme-io/gen";
+          rev = "f18830b4ef710ebe44c6d92abf0e020fd6943414";
+          sha256 = "0gdf44lwk58r6cx1qdgik6qannzwarj029khfs022fz6kwlvx279";
+        };
+        procMacro = true;
+        libName = "gen_macros";
+        authors = [
+          "pleme-io"
+        ];
+        dependencies = [
+          {
+            name = "proc-macro2";
+            packageId = "proc-macro2";
+          }
+          {
+            name = "quote";
+            packageId = "quote";
+          }
+          {
+            name = "syn";
+            packageId = "syn";
+            features = [ "full" "extra-traits" ];
+          }
+        ];
+
+      };
+      "gen-platform" = rec {
+        crateName = "gen-platform";
+        version = "0.1.5";
+        edition = "2024";
+        workspace_member = null;
+        src = pkgs.fetchgit {
+          url = "https://github.com/pleme-io/gen";
+          rev = "f18830b4ef710ebe44c6d92abf0e020fd6943414";
+          sha256 = "0gdf44lwk58r6cx1qdgik6qannzwarj029khfs022fz6kwlvx279";
+        };
+        libName = "gen_platform";
+        authors = [
+          "pleme-io"
+        ];
+        dependencies = [
+          {
+            name = "gen-macros";
+            packageId = "gen-macros";
+          }
+          {
+            name = "gen-types";
+            packageId = "gen-types";
+          }
+          {
+            name = "inventory";
+            packageId = "inventory";
+          }
+          {
+            name = "serde";
+            packageId = "serde";
+            features = [ "derive" ];
+          }
+          {
+            name = "serde_json";
+            packageId = "serde_json";
+          }
+          {
+            name = "thiserror";
+            packageId = "thiserror 2.0.18";
+          }
+        ];
+
+      };
+      "gen-types" = rec {
+        crateName = "gen-types";
+        version = "0.1.5";
+        edition = "2024";
+        workspace_member = null;
+        src = pkgs.fetchgit {
+          url = "https://github.com/pleme-io/gen";
+          rev = "f18830b4ef710ebe44c6d92abf0e020fd6943414";
+          sha256 = "0gdf44lwk58r6cx1qdgik6qannzwarj029khfs022fz6kwlvx279";
+        };
+        libName = "gen_types";
+        authors = [
+          "pleme-io"
+        ];
+        dependencies = [
+          {
+            name = "blake3";
+            packageId = "blake3";
+          }
+          {
+            name = "chrono";
+            packageId = "chrono";
+            features = [ "serde" ];
+          }
+          {
+            name = "indexmap";
+            packageId = "indexmap";
+            features = [ "serde" ];
+          }
+          {
+            name = "inventory";
+            packageId = "inventory";
+          }
+          {
+            name = "serde";
+            packageId = "serde";
+            features = [ "derive" ];
+          }
+          {
+            name = "serde_json";
+            packageId = "serde_json";
+          }
+          {
+            name = "thiserror";
+            packageId = "thiserror 2.0.18";
+          }
+        ];
+
       };
       "getrandom 0.2.17" = rec {
         crateName = "getrandom";
@@ -2333,6 +2537,75 @@ rec {
         };
         resolvedDefaultFeatures = [ "alloc" "default" "std" ];
       };
+      "iana-time-zone" = rec {
+        crateName = "iana-time-zone";
+        version = "0.1.65";
+        edition = "2021";
+        sha256 = "0w64khw5p8s4nzwcf36bwnsmqzf61vpwk9ca1920x82bk6nwj6z3";
+        libName = "iana_time_zone";
+        authors = [
+          "Andrew Straw <strawman@astraw.com>"
+          "René Kijewski <rene.kijewski@fu-berlin.de>"
+          "Ryan Lopopolo <rjl@hyperbo.la>"
+        ];
+        dependencies = [
+          {
+            name = "android_system_properties";
+            packageId = "android_system_properties";
+            target = { target, features }: ("android" == target."os" or null);
+          }
+          {
+            name = "core-foundation-sys";
+            packageId = "core-foundation-sys";
+            target = { target, features }: ("apple" == target."vendor" or null);
+          }
+          {
+            name = "iana-time-zone-haiku";
+            packageId = "iana-time-zone-haiku";
+            target = { target, features }: ("haiku" == target."os" or null);
+          }
+          {
+            name = "js-sys";
+            packageId = "js-sys";
+            target = { target, features }: (("wasm32" == target."arch" or null) && ("unknown" == target."os" or null));
+          }
+          {
+            name = "log";
+            packageId = "log";
+            target = { target, features }: (("wasm32" == target."arch" or null) && ("unknown" == target."os" or null));
+          }
+          {
+            name = "wasm-bindgen";
+            packageId = "wasm-bindgen";
+            target = { target, features }: (("wasm32" == target."arch" or null) && ("unknown" == target."os" or null));
+          }
+          {
+            name = "windows-core";
+            packageId = "windows-core";
+            target = { target, features }: ("windows" == target."os" or null);
+          }
+        ];
+        features = {
+        };
+        resolvedDefaultFeatures = [ "fallback" ];
+      };
+      "iana-time-zone-haiku" = rec {
+        crateName = "iana-time-zone-haiku";
+        version = "0.1.2";
+        edition = "2018";
+        sha256 = "17r6jmj31chn7xs9698r122mapq85mfnv98bb4pg6spm0si2f67k";
+        libName = "iana_time_zone_haiku";
+        authors = [
+          "René Kijewski <crates.io@k6i.de>"
+        ];
+        buildDependencies = [
+          {
+            name = "cc";
+            packageId = "cc";
+          }
+        ];
+
+      };
       "icy_sixel" = rec {
         crateName = "icy_sixel";
         version = "0.1.3";
@@ -2512,6 +2785,27 @@ rec {
             packageId = "hashbrown 0.17.1";
             usesDefaultFeatures = false;
           }
+          {
+            name = "serde";
+            packageId = "serde";
+            optional = true;
+            usesDefaultFeatures = false;
+            target = { target, features }: false;
+          }
+          {
+            name = "serde_core";
+            packageId = "serde_core";
+            optional = true;
+            usesDefaultFeatures = false;
+          }
+        ];
+        devDependencies = [
+          {
+            name = "serde";
+            packageId = "serde";
+            usesDefaultFeatures = false;
+            features = [ "derive" ];
+          }
         ];
         features = {
           "arbitrary" = [ "dep:arbitrary" ];
@@ -2522,7 +2816,7 @@ rec {
           "serde" = [ "dep:serde_core" "dep:serde" ];
           "sval" = [ "dep:sval" ];
         };
-        resolvedDefaultFeatures = [ "default" "std" ];
+        resolvedDefaultFeatures = [ "default" "serde" "std" ];
       };
       "indoc" = rec {
         crateName = "indoc";
@@ -2669,6 +2963,29 @@ rec {
         ];
 
       };
+      "inventory" = rec {
+        crateName = "inventory";
+        version = "0.3.24";
+        edition = "2021";
+        sha256 = "16y3vbab2ld8ykjap1xxwk001jliyqsj8np57zpcrx7jfq6c7w54";
+        authors = [
+          "David Tolnay <dtolnay@gmail.com>"
+        ];
+        dependencies = [
+          {
+            name = "rustversion";
+            packageId = "rustversion";
+            target = { target, features }: (builtins.elem "wasm" target."family");
+          }
+        ];
+        devDependencies = [
+          {
+            name = "rustversion";
+            packageId = "rustversion";
+          }
+        ];
+
+      };
       "irodori" = rec {
         crateName = "irodori";
         version = "0.1.0";
@@ -2685,13 +3002,13 @@ rec {
       };
       "ishou-tokens" = rec {
         crateName = "ishou-tokens";
-        version = "0.1.0";
+        version = "0.1.1";
         edition = "2024";
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/ishou";
-          rev = "4f5add6f4fd301f3700073e56cf449e936fa6cc8";
-          sha256 = "0cpn2g4qlxk2hbca2dpi4iiv528i2y9q0cq3cqd15m14ll5p445i";
+          rev = "fd91656b46863d238206d29ce309ac37da8caef3";
+          sha256 = "1s1553j82czmhj14rh84f5d6khmd6dmvxy8fsidraqn7c7fnbyq0";
         };
         libName = "ishou_tokens";
         dependencies = [
@@ -2790,6 +3107,45 @@ rec {
           }
         ];
 
+      };
+      "js-sys" = rec {
+        crateName = "js-sys";
+        version = "0.3.99";
+        edition = "2021";
+        sha256 = "04azrzsz91gr5s3z0ij36lz0kj9ry4lw3jz0mmbiwb251rsc8aql";
+        libName = "js_sys";
+        authors = [
+          "The wasm-bindgen Developers"
+        ];
+        dependencies = [
+          {
+            name = "cfg-if";
+            packageId = "cfg-if";
+          }
+          {
+            name = "futures-util";
+            packageId = "futures-util";
+            optional = true;
+            usesDefaultFeatures = false;
+            features = [ "std" ];
+          }
+          {
+            name = "once_cell";
+            packageId = "once_cell";
+            usesDefaultFeatures = false;
+          }
+          {
+            name = "wasm-bindgen";
+            packageId = "wasm-bindgen";
+            usesDefaultFeatures = false;
+          }
+        ];
+        features = {
+          "default" = [ "std" "unsafe-eval" ];
+          "futures-core-03-stream" = [ "dep:futures-util" "dep:futures-core" ];
+          "std" = [ "wasm-bindgen/std" "dep:futures-util" ];
+        };
+        resolvedDefaultFeatures = [ "default" "std" "unsafe-eval" ];
       };
       "kasuari" = rec {
         crateName = "kasuari";
@@ -3295,7 +3651,7 @@ rec {
       };
       "moldura" = rec {
         crateName = "moldura";
-        version = "0.1.2";
+        version = "0.1.3";
         edition = "2024";
         src = lib.cleanSourceWith { filter = sourceFilter;  src = ./.; };
         authors = [
@@ -3524,12 +3880,6 @@ rec {
             target = { target, features }: ("macos" == target."os" or null);
           }
           {
-            name = "fsevent-sys";
-            packageId = "fsevent-sys";
-            optional = true;
-            target = { target, features }: ("macos" == target."os" or null);
-          }
-          {
             name = "inotify";
             packageId = "inotify";
             usesDefaultFeatures = false;
@@ -3600,7 +3950,7 @@ rec {
           "serde" = [ "notify-types/serde" ];
           "serialization-compat-6" = [ "notify-types/serialization-compat-6" ];
         };
-        resolvedDefaultFeatures = [ "default" "fsevent-sys" "kqueue" "macos_fsevent" "macos_kqueue" "mio" ];
+        resolvedDefaultFeatures = [ "kqueue" "macos_kqueue" "mio" ];
       };
       "notify-types" = rec {
         crateName = "notify-types";
@@ -5819,8 +6169,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/shikumi";
-          rev = "ff0dbab8060acb97bb1daa11181664c69c069aa6";
-          sha256 = "179mzrqw8811ajjdpvl08fykwwa3yd6jc5lvw3zd335fccbdlk88";
+          rev = "d75ca144b14dbc2fd5d2dd2c763181ae41ddf4c4";
+          sha256 = "1sgm8jxmcb16ywai9mg2v3wwblpqlk0av2qakk2w9sl1hfblr92v";
         };
         dependencies = [
           {
@@ -5837,8 +6187,24 @@ rec {
             features = [ "env" "yaml" "toml" ];
           }
           {
+            name = "gen-platform";
+            packageId = "gen-platform";
+          }
+          {
+            name = "gen-types";
+            packageId = "gen-types";
+          }
+          {
             name = "notify";
             packageId = "notify";
+            usesDefaultFeatures = false;
+          }
+          {
+            name = "notify";
+            packageId = "notify";
+            usesDefaultFeatures = false;
+            target = { target, features }: ("macos" == target."os" or null);
+            features = [ "macos_kqueue" ];
           }
           {
             name = "serde";
@@ -6247,8 +6613,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/tatara";
-          rev = "46270485181de11bee27b236995f0401427103e3";
-          sha256 = "1lm9ix248m1q5qi0vp22qik80ksxypadaqqvbc2gn6900dkfvgq0";
+          rev = "c99fdb36b625bd5ec96dc31af33cf4d965d608b6";
+          sha256 = "0h62lqi66l9bvjmkjq6w0vyinpgq6m9fsgl500c395fkb15zsvkk";
         };
         libName = "tatara_lisp";
         authors = [
@@ -6289,8 +6655,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/tatara";
-          rev = "46270485181de11bee27b236995f0401427103e3";
-          sha256 = "1lm9ix248m1q5qi0vp22qik80ksxypadaqqvbc2gn6900dkfvgq0";
+          rev = "c99fdb36b625bd5ec96dc31af33cf4d965d608b6";
+          sha256 = "0h62lqi66l9bvjmkjq6w0vyinpgq6m9fsgl500c395fkb15zsvkk";
         };
         procMacro = true;
         libName = "tatara_lisp_derive";
@@ -6321,8 +6687,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/tatara";
-          rev = "46270485181de11bee27b236995f0401427103e3";
-          sha256 = "1lm9ix248m1q5qi0vp22qik80ksxypadaqqvbc2gn6900dkfvgq0";
+          rev = "c99fdb36b625bd5ec96dc31af33cf4d965d608b6";
+          sha256 = "0h62lqi66l9bvjmkjq6w0vyinpgq6m9fsgl500c395fkb15zsvkk";
         };
         libName = "tatara_ui";
         authors = [

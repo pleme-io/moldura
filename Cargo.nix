@@ -560,9 +560,9 @@ rec {
       };
       "bitflags" = rec {
         crateName = "bitflags";
-        version = "2.11.1";
+        version = "2.12.1";
         edition = "2021";
-        sha256 = "1cvqijg3rvwgis20a66vfdxannjsxfy5fgjqkaq3l13gyfcj4lf4";
+        sha256 = "02phhjm7w380zdh8928zf13cfi1bw2qz2ay36ml2jmwmmv8cxmw4";
         authors = [
           "The Rust Project Developers"
         ];
@@ -742,9 +742,9 @@ rec {
       };
       "cc" = rec {
         crateName = "cc";
-        version = "1.2.62";
+        version = "1.2.63";
         edition = "2018";
-        sha256 = "164zsxcy2zzvbbh1qpbrsssz8kmria41j4agih47sal3y1cyip51";
+        sha256 = "0zy2bqc4nvj6bv2cipx4h4bn65wf1zqf1fw1hsh64mmvg1hh2vjm";
         authors = [
           "Alex Crichton <alex@alexcrichton.com>"
         ];
@@ -867,11 +867,11 @@ rec {
         ];
 
       };
-      "compact_str 0.8.1" = rec {
+      "compact_str 0.8.2" = rec {
         crateName = "compact_str";
-        version = "0.8.1";
+        version = "0.8.2";
         edition = "2021";
-        sha256 = "0cmgp61hw4fwaakhilwznfgncw2p4wkbvz6dw3i7ibbckh3c8y9v";
+        sha256 = "0ki4hsi2cspj7d3v4xhpn6sakcny3j8jpcsinv6b59anpgmj5mkz";
         authors = [
           "Parker Timmerman <parker@parkertimmerman.com>"
         ];
@@ -928,11 +928,11 @@ rec {
         };
         resolvedDefaultFeatures = [ "default" "std" ];
       };
-      "compact_str 0.9.0" = rec {
+      "compact_str 0.9.1" = rec {
         crateName = "compact_str";
-        version = "0.9.0";
+        version = "0.9.1";
         edition = "2021";
-        sha256 = "0ykhh2scg32lmzxak107pmby6fmnz7qbhsi9i8g9iknfl4ji7nrz";
+        sha256 = "1aq0vx3xnaxf9k8p1pwch5v5av0xj2ddq2av25aa76jd4z1d3zcx";
         authors = [
           "Parker Timmerman <parker@parkertimmerman.com>"
         ];
@@ -1587,8 +1587,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/egaku";
-          rev = "3b2af556217f4bcadc58b2f6b494f80224a10a9e";
-          sha256 = "0r3173zjc378m1dvj9m700az6a0yz3z26b0p5ihs8cr6b4r5ixbq";
+          rev = "0ea3762b7101beabcc97927735a7a437282ade64";
+          sha256 = "131a61mcv6g9s23s95khz22khcwprqyjw958r0ji078vs2b78x8x";
         };
         dependencies = [
           {
@@ -1622,8 +1622,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/egaku-term";
-          rev = "1125fc4773672bd7fcf5def334dc7e2bc1d3f819";
-          sha256 = "1wpj55qv4c431gn9lqi05p0rxq5vgb7qciyhbrqkrwbl3q8bsfgx";
+          rev = "94fec198fb4245cc85f0a682da1fe0c9d699a08d";
+          sha256 = "0x4dbjwhrl1bxjczyf11igj0xgb3l4kklkn1qr99fkmpr6k0qb4h";
         };
         libName = "egaku_term";
         dependencies = [
@@ -1761,7 +1761,7 @@ rec {
           }
           {
             name = "windows-sys";
-            packageId = "windows-sys 0.61.2";
+            packageId = "windows-sys 0.59.0";
             target = { target, features }: (target."windows" or false);
             features = [ "Win32_Foundation" "Win32_System_Diagnostics_Debug" ];
           }
@@ -2106,13 +2106,13 @@ rec {
       };
       "gen-macros" = rec {
         crateName = "gen-macros";
-        version = "0.1.5";
+        version = "0.1.8";
         edition = "2024";
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/gen";
-          rev = "f18830b4ef710ebe44c6d92abf0e020fd6943414";
-          sha256 = "0gdf44lwk58r6cx1qdgik6qannzwarj029khfs022fz6kwlvx279";
+          rev = "97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6";
+          sha256 = "1a91d9b524p3kmn3zxvsp0kxznnir23jdyiy9qp8945f77vyx8zy";
         };
         procMacro = true;
         libName = "gen_macros";
@@ -2138,13 +2138,13 @@ rec {
       };
       "gen-platform" = rec {
         crateName = "gen-platform";
-        version = "0.1.5";
+        version = "0.1.8";
         edition = "2024";
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/gen";
-          rev = "f18830b4ef710ebe44c6d92abf0e020fd6943414";
-          sha256 = "0gdf44lwk58r6cx1qdgik6qannzwarj029khfs022fz6kwlvx279";
+          rev = "97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6";
+          sha256 = "1a91d9b524p3kmn3zxvsp0kxznnir23jdyiy9qp8945f77vyx8zy";
         };
         libName = "gen_platform";
         authors = [
@@ -2181,13 +2181,13 @@ rec {
       };
       "gen-types" = rec {
         crateName = "gen-types";
-        version = "0.1.5";
+        version = "0.1.8";
         edition = "2024";
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/gen";
-          rev = "f18830b4ef710ebe44c6d92abf0e020fd6943414";
-          sha256 = "0gdf44lwk58r6cx1qdgik6qannzwarj029khfs022fz6kwlvx279";
+          rev = "97aaf2e4ce3cfbc50d0f7377d227bda42dd4d2c6";
+          sha256 = "1a91d9b524p3kmn3zxvsp0kxznnir23jdyiy9qp8945f77vyx8zy";
         };
         libName = "gen_types";
         authors = [
@@ -2855,15 +2855,9 @@ rec {
       };
       "inotify" = rec {
         crateName = "inotify";
-        version = "0.11.1";
+        version = "0.11.2";
         edition = "2018";
-        sha256 = "16fiffnqhfdwzgrv3wcnaih0a9xbx1a44nma1yn5idr83apkwnxx";
-        authors = [
-          "Hanno Braun <mail@hannobraun.de>"
-          "Félix Saparelli <me@passcod.name>"
-          "Cristian Kubis <cristian.kubis@tsunix.de>"
-          "Frank Denis <github@pureftpd.org>"
-        ];
+        sha256 = "1hd2xixzzr8s6anxil0db57jbfxvr4zv17qmzr34jwrfhjjnhgjk";
         dependencies = [
           {
             name = "bitflags";
@@ -2880,8 +2874,8 @@ rec {
         ];
         features = {
           "default" = [ "stream" ];
-          "futures-core" = [ "dep:futures-core" ];
-          "stream" = [ "futures-core" "tokio" ];
+          "futures-util" = [ "dep:futures-util" ];
+          "stream" = [ "futures-util" "tokio" ];
           "tokio" = [ "dep:tokio" ];
         };
       };
@@ -2988,14 +2982,18 @@ rec {
       };
       "irodori" = rec {
         crateName = "irodori";
-        version = "0.1.0";
+        version = "0.1.1";
         edition = "2024";
-        sha256 = "07nbryqvivbpg0gw9sbb8c8lbhvmrp1pcmlr6w7nq68jry44ph8d";
+        sha256 = "1fdvzzvdvas59m5dak2v2bvbbl2kxf5zpp6lvdpn5130lg16w7kw";
         dependencies = [
           {
             name = "serde";
             packageId = "serde";
             features = [ "derive" ];
+          }
+          {
+            name = "thiserror";
+            packageId = "thiserror 2.0.18";
           }
         ];
 
@@ -3007,8 +3005,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/ishou";
-          rev = "fd91656b46863d238206d29ce309ac37da8caef3";
-          sha256 = "1s1553j82czmhj14rh84f5d6khmd6dmvxy8fsidraqn7c7fnbyq0";
+          rev = "9dbc234a345a4ddc456bd912a66e851840a07114";
+          sha256 = "1mqs6lj9sb34859hhfllkgznhv7qm006amg8wkadz4mhhvn6p9ph";
         };
         libName = "ishou_tokens";
         dependencies = [
@@ -3184,9 +3182,9 @@ rec {
       };
       "kqueue" = rec {
         crateName = "kqueue";
-        version = "1.1.1";
+        version = "1.2.0";
         edition = "2021";
-        sha256 = "0sjrsnza8zxr1zfpv6sa0zapd54kx9wlijrz9apqvs6wsw303hza";
+        sha256 = "1dc7rm23i7s1574xx185836rxyzynrsv5wkn96nf0649f990fg17";
         authors = [
           "William Orr <will@worrbase.com>"
         ];
@@ -3401,9 +3399,9 @@ rec {
       };
       "log" = rec {
         crateName = "log";
-        version = "0.4.30";
+        version = "0.4.31";
         edition = "2021";
-        sha256 = "1rd6sw3gv9hb93464w7x3sip99zf8sjagm662r2ckg14b1lcavk1";
+        sha256 = "0kq2fh6q2bjkrm8m6hj8kb7gxfd7cr7qbcpxd1lc1xq5rns30fqi";
         authors = [
           "The Rust Project Developers"
         ];
@@ -3529,9 +3527,9 @@ rec {
       };
       "memchr" = rec {
         crateName = "memchr";
-        version = "2.8.0";
+        version = "2.8.1";
         edition = "2021";
-        sha256 = "0y9zzxcqxvdqg6wyag7vc3h0blhdn7hkq164bxyx2vph8zs5ijpq";
+        sha256 = "1n448jx01h5z2xknj6x2dhxgr8s8fb717cf6vfqj5lmhkpj7m53b";
         authors = [
           "Andrew Gallant <jamslam@gmail.com>"
           "bluss"
@@ -3611,9 +3609,9 @@ rec {
       };
       "mio" = rec {
         crateName = "mio";
-        version = "1.2.0";
+        version = "1.2.1";
         edition = "2021";
-        sha256 = "1hanrh4fwsfkdqdaqfidz48zz1wdix23zwn3r2x78am0garfbdsh";
+        sha256 = "1nkggmrlnjs93w8rja4lvjj4aml1xqahgimv1h0p7d373kvhmg82";
         authors = [
           "Carl Lerche <me@carllerche.com>"
           "Thomas de Zeeuw <thomasdezeeuw@gmail.com>"
@@ -3651,7 +3649,7 @@ rec {
       };
       "moldura" = rec {
         crateName = "moldura";
-        version = "0.1.3";
+        version = "0.1.4";
         edition = "2024";
         src = lib.cleanSourceWith { filter = sourceFilter;  src = ./.; };
         authors = [
@@ -3987,7 +3985,7 @@ rec {
         dependencies = [
           {
             name = "windows-sys";
-            packageId = "windows-sys 0.61.2";
+            packageId = "windows-sys 0.59.0";
             rename = "windows";
             target = { target, features }: (target."windows" or false);
             features = [ "Win32_Foundation" "Win32_System_Console" "Win32_Storage_FileSystem" "Win32_Security" ];
@@ -4843,7 +4841,7 @@ rec {
           }
           {
             name = "compact_str";
-            packageId = "compact_str 0.8.1";
+            packageId = "compact_str 0.8.2";
           }
           {
             name = "indoc";
@@ -4972,7 +4970,7 @@ rec {
           }
           {
             name = "compact_str";
-            packageId = "compact_str 0.9.0";
+            packageId = "compact_str 0.9.1";
             usesDefaultFeatures = false;
           }
           {
@@ -5802,7 +5800,7 @@ rec {
           }
           {
             name = "windows-sys";
-            packageId = "windows-sys 0.61.2";
+            packageId = "windows-sys 0.59.0";
             target = { target, features }: (target."windows" or false);
             features = [ "Win32_Foundation" "Win32_Networking_WinSock" ];
           }
@@ -6169,8 +6167,8 @@ rec {
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/shikumi";
-          rev = "d75ca144b14dbc2fd5d2dd2c763181ae41ddf4c4";
-          sha256 = "1sgm8jxmcb16ywai9mg2v3wwblpqlk0av2qakk2w9sl1hfblr92v";
+          rev = "70b2f94fbc8f5e40e409b75d91af6d840ab0a02c";
+          sha256 = "02yfiv8rlc3x00irzk3sdp4dc93wf1s8688gjxpfkxqm2jzkwn4a";
         };
         dependencies = [
           {
@@ -6251,9 +6249,9 @@ rec {
       };
       "shlex" = rec {
         crateName = "shlex";
-        version = "1.3.0";
-        edition = "2015";
-        sha256 = "0r1y6bv26c1scpxvhg2cabimrmwgbp4p3wy6syj9n0c4s3q2znhg";
+        version = "2.0.1";
+        edition = "2018";
+        sha256 = "1fjsll1cd7d2bcpdij9kd6w62rpbc7qqzvydvs021vsmr1cxvypq";
         authors = [
           "comex <comexk@gmail.com>"
           "Fenhl <fenhl@fenhl.net>"
@@ -6608,13 +6606,13 @@ rec {
       };
       "tatara-lisp" = rec {
         crateName = "tatara-lisp";
-        version = "0.2.1";
+        version = "0.2.3";
         edition = "2021";
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/tatara";
-          rev = "c99fdb36b625bd5ec96dc31af33cf4d965d608b6";
-          sha256 = "0h62lqi66l9bvjmkjq6w0vyinpgq6m9fsgl500c395fkb15zsvkk";
+          rev = "6bcdf2f09c69c859a85e354cecaf1036cd4ca163";
+          sha256 = "0ml3r5kv1z3fjx5fphcm80hdqqw5hag1zh7ijcl0isiacaxkk5sv";
         };
         libName = "tatara_lisp";
         authors = [
@@ -6650,13 +6648,13 @@ rec {
       };
       "tatara-lisp-derive" = rec {
         crateName = "tatara-lisp-derive";
-        version = "0.2.1";
+        version = "0.2.3";
         edition = "2021";
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/tatara";
-          rev = "c99fdb36b625bd5ec96dc31af33cf4d965d608b6";
-          sha256 = "0h62lqi66l9bvjmkjq6w0vyinpgq6m9fsgl500c395fkb15zsvkk";
+          rev = "6bcdf2f09c69c859a85e354cecaf1036cd4ca163";
+          sha256 = "0ml3r5kv1z3fjx5fphcm80hdqqw5hag1zh7ijcl0isiacaxkk5sv";
         };
         procMacro = true;
         libName = "tatara_lisp_derive";
@@ -6682,13 +6680,13 @@ rec {
       };
       "tatara-ui" = rec {
         crateName = "tatara-ui";
-        version = "0.2.1";
+        version = "0.2.3";
         edition = "2021";
         workspace_member = null;
         src = pkgs.fetchgit {
           url = "https://github.com/pleme-io/tatara";
-          rev = "c99fdb36b625bd5ec96dc31af33cf4d965d608b6";
-          sha256 = "0h62lqi66l9bvjmkjq6w0vyinpgq6m9fsgl500c395fkb15zsvkk";
+          rev = "6bcdf2f09c69c859a85e354cecaf1036cd4ca163";
+          sha256 = "0ml3r5kv1z3fjx5fphcm80hdqqw5hag1zh7ijcl0isiacaxkk5sv";
         };
         libName = "tatara_ui";
         authors = [
@@ -7501,9 +7499,9 @@ rec {
       };
       "unicode-segmentation" = rec {
         crateName = "unicode-segmentation";
-        version = "1.13.2";
+        version = "1.13.3";
         edition = "2018";
-        sha256 = "135a26m4a0wj319gcw28j6a5aqvz00jmgwgmcs6szgxjf942facn";
+        sha256 = "1a47zaq83p386r3baq4m018xd5q4q0grdg56i1x042dzn71x7xf6";
         libName = "unicode_segmentation";
         authors = [
           "kwantam <kwantam@gmail.com>"
@@ -7926,7 +7924,7 @@ rec {
         dependencies = [
           {
             name = "windows-sys";
-            packageId = "windows-sys 0.61.2";
+            packageId = "windows-sys 0.59.0";
             target = { target, features }: (target."windows" or false);
             features = [ "Win32_Foundation" "Win32_Storage_FileSystem" "Win32_System_Console" "Win32_System_SystemInformation" ];
           }
@@ -9055,7 +9053,7 @@ rec {
           "Win32_Web" = [ "Win32" ];
           "Win32_Web_InternetExplorer" = [ "Win32_Web" ];
         };
-        resolvedDefaultFeatures = [ "Win32" "Win32_Foundation" "Win32_NetworkManagement" "Win32_NetworkManagement_IpHelper" "Win32_Networking" "Win32_Networking_WinSock" "Win32_System" "Win32_System_Threading" "default" ];
+        resolvedDefaultFeatures = [ "Win32" "Win32_Foundation" "Win32_NetworkManagement" "Win32_NetworkManagement_IpHelper" "Win32_Networking" "Win32_Networking_WinSock" "Win32_Security" "Win32_Storage" "Win32_Storage_FileSystem" "Win32_System" "Win32_System_Console" "Win32_System_Diagnostics" "Win32_System_Diagnostics_Debug" "Win32_System_SystemInformation" "Win32_System_Threading" "default" ];
       };
       "windows-sys 0.60.2" = rec {
         crateName = "windows-sys";
@@ -9582,7 +9580,7 @@ rec {
           "Win32_Web" = [ "Win32" ];
           "Win32_Web_InternetExplorer" = [ "Win32_Web" ];
         };
-        resolvedDefaultFeatures = [ "Wdk" "Wdk_Foundation" "Wdk_Storage" "Wdk_Storage_FileSystem" "Wdk_System" "Wdk_System_IO" "Win32" "Win32_Foundation" "Win32_Networking" "Win32_Networking_WinSock" "Win32_Security" "Win32_Storage" "Win32_Storage_FileSystem" "Win32_System" "Win32_System_Console" "Win32_System_Diagnostics" "Win32_System_Diagnostics_Debug" "Win32_System_IO" "Win32_System_Pipes" "Win32_System_SystemInformation" "Win32_System_WindowsProgramming" "default" ];
+        resolvedDefaultFeatures = [ "Wdk" "Wdk_Foundation" "Wdk_Storage" "Wdk_Storage_FileSystem" "Wdk_System" "Wdk_System_IO" "Win32" "Win32_Foundation" "Win32_Networking" "Win32_Networking_WinSock" "Win32_Security" "Win32_Storage" "Win32_Storage_FileSystem" "Win32_System" "Win32_System_Console" "Win32_System_IO" "Win32_System_Pipes" "Win32_System_WindowsProgramming" "default" ];
       };
       "windows-targets 0.52.6" = rec {
         crateName = "windows-targets";
@@ -9901,9 +9899,9 @@ rec {
       };
       "zerocopy" = rec {
         crateName = "zerocopy";
-        version = "0.8.48";
+        version = "0.8.50";
         edition = "2021";
-        sha256 = "1sb8plax8jbrsng1jdval7bdhk7hhrx40dz3hwh074k6knzkgm7f";
+        sha256 = "1laahnfxs4qyfb1fdf5nbb2qfshi72b1hbi0ffp2zy2m1r7ms1iv";
         authors = [
           "Joshua Liebow-Feeser <joshlf@google.com>"
           "Jack Wrenn <jswrenn@amazon.com>"
@@ -9937,9 +9935,9 @@ rec {
       };
       "zerocopy-derive" = rec {
         crateName = "zerocopy-derive";
-        version = "0.8.48";
+        version = "0.8.50";
         edition = "2021";
-        sha256 = "1m5s0g92cxggqc74j83k1priz24k3z93sj5gadppd20p9c4cvqvh";
+        sha256 = "0fdnr9qslx1hbn2i9rsvy9s95mychfy2vj90ajsjm2basccinqqb";
         procMacro = true;
         libName = "zerocopy_derive";
         authors = [
